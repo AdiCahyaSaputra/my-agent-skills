@@ -1,0 +1,4 @@
+interface:
+  display_name: "My programming preferences"
+  short_description: "Personal rules for spacing, conditions, and arguments"
+  default_prompt: "Use $my-programming-preferences when writing or editing this code."
