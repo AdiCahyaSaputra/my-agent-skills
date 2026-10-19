@@ -1,0 +1,19 @@
+{
+  "project": {
+    "title": "How Source-First Visual Storytelling Works",
+    "articleUrl": "https://example.com/replace-with-real-article",
+    "audience": "Technical and nontechnical readers",
+    "objective": "Explain how an article becomes a verifiable illustrated presentation",
+    "approved": false,
+    "theme": {"primary":"243A5A","accent":"DC2626","background":"F8F7F3","foreground":"1F2937","fontFace":"SF Pro"}
+  },
+  "assets": [],
+  "claims": [],
+  "slides": [
+    {"id":"s01","type":"cover","title":"From Article to Visual Story","subtitle":"Research. Build. Verify."},
+    {"id":"s02","type":"statement","title":"A slide is not a paragraph","body":"Keep a single memorable idea on every slide.","bullets":["Extract the essential argument","Choose visuals that explain","Keep evidence traceable"]},
+    {"id":"s03","type":"process","title":"A three-stage production loop","steps":["Research the original","Agree on storyline","Build editable slides","Check cited evidence","Revise and deliver"]},
+    {"id":"s04","type":"comparison","title":"Source-first visual sourcing","left":["Original article visuals","Authoritative figures","Properly licensed assets"],"right":["Generate only as fallback","Never fake evidence","Label synthetic imagery"]},
+    {"id":"s05","type":"closing","title":"Illustrate with evidence","subtitle":"Every major claim and visual should have a traceable origin."}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "article-to-pptx-skill",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "research": "tsx scripts/research.ts",
+    "assets": "tsx scripts/assets.ts",
+    "build": "tsx scripts/build.ts",
+    "verify": "tsx scripts/verify.ts",
+    "render": "tsx scripts/render.ts",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "pptxgenjs": "^4.0.1",
+    "sharp": "^0.34.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

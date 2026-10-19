@@ -1,0 +1,5 @@
+node_modules/
+output/
+research/
+storyboard.json
+.DS_Store

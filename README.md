@@ -8,6 +8,8 @@ Personal agent preferences, maintained separately from third-party skills.
 
 `my-typescript-preferences` applies my TSX conditional rendering conventions alongside general TypeScript guidance.
 
+`article-to-pptx` turns articles into editable, source-first slide decks, using Tailwind red-600 and SF Pro as its default theme.
+
 ## Local setup
 
 The global skill locations link to the directories under `skills/` in this checkout. Edit the source here, then commit and push to back it up. Changes are available through the links without copying files.

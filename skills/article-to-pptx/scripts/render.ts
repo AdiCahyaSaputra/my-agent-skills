@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {mkdir} from '../src/core.js';
+if(!fs.existsSync('output/presentation.pptx'))throw Error('Run build first');
+mkdir('output/rendered');
+const soffice=spawnSync('libreoffice',['-env:UserInstallation=file:///tmp/article-to-pptx-lo','--headless','--convert-to','pdf','--outdir','output','output/presentation.pptx'],{encoding:'utf8'});
+if(soffice.error || soffice.status!==0)throw Error(`LibreOffice is required for render; ${soffice.stderr||soffice.error}`);
+const pdf=path.resolve('output/presentation.pdf');if(!fs.existsSync(pdf))throw Error('PDF render missing');
+const p=spawnSync('pdftoppm',['-png','-r','110',pdf,'output/rendered/slide'],{encoding:'utf8'});
+if(p.error||p.status!==0)throw Error('pdftoppm required: '+(p.stderr||p.error));
+console.log('Rendered slide PNGs to output/rendered/. Review them visually before delivery.');
