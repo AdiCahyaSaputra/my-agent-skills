@@ -9,7 +9,9 @@
     "build": "tsx scripts/build.ts",
     "verify": "tsx scripts/verify.ts",
     "render": "tsx scripts/render.ts",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "test:themes": "python3 scripts/test-themes.py",
+    "preview:themes": "tsx scripts/preview-themes.ts"
   },
   "dependencies": {
     "cheerio": "^1.0.0",

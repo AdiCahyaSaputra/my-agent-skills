@@ -13,7 +13,7 @@ $('script,style,nav,footer,header,aside,form,noscript,iframe').remove();
 const title=$('meta[property="og:title"]').attr('content') || $('h1').first().text().trim() || $('title').text().trim();
 const description=$('meta[name="description"]').attr('content')||'';
 const candidates=['article','main','[role="main"]','.post-content','.entry-content','.article-content'];
-let content=$('body');for(const s of candidates){const found=$(s).first();if(found.length&&found.text().trim().length>content.text().trim().length*.20){content=found;break;}}
+let content: ReturnType<typeof $>=$('body');for(const s of candidates){const found=$(s).first();if(found.length&&found.text().trim().length>content.text().trim().length*.20){content=found;break;}}
 const paragraphs:string[]=[];
 content.find('h1,h2,h3,h4,p,li,blockquote').each((_,el)=>{const str=$(el).text().replace(/\s+/g,' ').trim();if(str.length>20&& !paragraphs.includes(str))paragraphs.push(str);});
 const images:{url:string;alt:string;caption:string;origin:string;permission:string}[]=[];
