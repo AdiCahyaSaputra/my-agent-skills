@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@@TITLE@@</title>
+<style>
+:root { color-scheme:light; --background:#fafaf8; --foreground:#222824; --muted:#626b64; --card:#fff; --border:#dce2dc; --primary:#215fc0; --radius:10px; --font-sans:system-ui,sans-serif; --font-mono:ui-monospace,monospace; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--foreground); font-family:var(--font-sans); line-height:1.6; }
+main { max-width:1050px; margin:32px auto; }
+h1 { font-size:clamp(24px,4vw,36px); line-height:1.18; letter-spacing:-.025em; }
+h2 { font-size:20px; margin-top:32px; }
+p { margin:8px 0; }
+.meta { color:var(--muted); font-size:13px; overflow-wrap:anywhere; }
+a { color:var(--primary); text-underline-offset:3px; overflow-wrap:anywhere; }
+.diagram { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; overflow:auto; }
+.mermaid { margin:0; text-align:center; }
+.mermaid svg { min-width:400px; max-width:100%; height:auto; }
+details { margin:14px 0; border-top:1px solid var(--border); padding-top:12px; scroll-margin-top:16px; }
+summary { cursor:pointer; font-weight:600; overflow-wrap:anywhere; }
+pre { overflow:auto; font-size:13px; line-height:1.6; }
+.line-number { color:var(--muted); user-select:none; }
+.focus { display:inline-block; min-width:100%; background:#e5efff; }
+li { margin-bottom:8px; }
+noscript,.error { color:#a12222; }
+@media(max-width:700px) { main { margin:20px 0; } .mermaid svg { max-width:none; } }
+@media print { details { break-inside:avoid; } }
+</style>
+</head>
+<body><main>
+<p class="meta">@@PROJECT@@ · @@DATE@@ · Source excerpts captured at report generation</p>
+<h1>@@TITLE@@</h1>
+<p>@@SUMMARY@@</p>
+<h2>How the work fits together</h2>
+<div class="diagram"><pre class="mermaid">@@DIAGRAM@@</pre></div>
+<p id="render-status" class="meta" role="status">Rendering diagram…</p>
+<noscript>Enable JavaScript to render the diagram. The Mermaid source and code excerpts remain readable below.</noscript>
+<h2>What changed</h2><ul>@@CHANGES@@</ul>
+<h2>Read these first</h2><ol>@@READING@@</ol>
+@@SNIPPETS@@
+<h2>Verification</h2><ul>@@VERIFICATION@@</ul>
+<details><summary>Mermaid source</summary><pre>@@DIAGRAM@@</pre></details>
+</main>
+<script id="mermaid-runtime">@@RUNTIME@@</script>
+<script id="report-runtime">
+mermaid.initialize({startOnLoad:false,securityLevel:'strict',theme:'neutral',fontFamily:'system-ui, sans-serif',flowchart:{htmlLabels:false}});
+mermaid.run({querySelector:'.mermaid'}).then(() => {
+  document.getElementById('render-status').textContent = 'Diagram rendered offline. Numbers refer to the reading list below.';
+  document.documentElement.dataset.diagramStatus = 'ready';
+}).catch((error) => {
+  const status = document.getElementById('render-status');
+  status.className = 'error';
+  status.textContent = 'Diagram failed to render. See Mermaid source below. ' + error.message;
+  document.documentElement.dataset.diagramStatus = 'error';
+});
+</script>
+</body></html>

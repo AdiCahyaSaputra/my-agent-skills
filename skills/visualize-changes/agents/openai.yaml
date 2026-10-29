@@ -1,0 +1,6 @@
+interface:
+  display_name: "Visualize changes"
+  short_description: "Explain completed work with offline diagrams and code excerpts"
+  default_prompt: "Use $visualize-changes to explain the completed task with an HTML diagram report and code worth reading."
+policy:
+  allow_implicit_invocation: false
