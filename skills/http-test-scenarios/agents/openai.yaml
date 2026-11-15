@@ -1,0 +1,6 @@
+interface:
+  display_name: "HTTP test scenarios"
+  short_description: "Create Kulala scenarios and run safe API checks"
+  default_prompt: "Use $http-test-scenarios for the requested API changes, run safe read-only scenarios, and ask before mutations."
+policy:
+  allow_implicit_invocation: false

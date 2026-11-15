@@ -1,0 +1,6 @@
+interface:
+  display_name: "Verify API changes"
+  short_description: "Run API scenarios, then explain changes visually"
+  default_prompt: "Use $verify-changes-api to complete API scenarios before generating the visual report with their results."
+policy:
+  allow_implicit_invocation: false

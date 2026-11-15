@@ -1,11 +1,42 @@
 ---
 name: my-programming-preferences
-description: Apply my personal programming preferences when writing, editing, or reviewing code in any programming language. Separate logical steps with blank lines, name complex conditions, and use keyword arguments or an options object for functions with more than two parameters.
+description: Apply to all coding-related tasks in any programming language, including writing, editing, debugging, refactoring, and reviewing code.
 ---
 
 # My programming preferences
 
-Apply these rules to code within the requested scope. Preserve behavior. Follow explicit task instructions when they require a different approach.
+Apply these rules to every coding-related task in any programming language, including writing, editing, debugging, refactoring, and reviewing code. Apply them across the whole requested scope, not only when this skill is explicitly named. Preserve behavior. Follow explicit task instructions when they require a different approach.
+
+## Apply pragmatic programming principles
+
+Use these principles from _The Pragmatic Programmer_ to guide implementation decisions within the requested scope.
+
+- State problems and limitations plainly, offer concrete ways forward, and distinguish verified facts from assumptions.
+- Keep each piece of knowledge in one authoritative place. Apply DRY to business rules, configuration, schemas, and documentation as well as code. Share an abstraction when callers represent the same rule and should change together. Similar-looking code alone does not justify coupling unrelated concepts.
+- Prefer the simplest design that supports the known requirements. Add an abstraction when it removes concrete coupling, rather than for hypothetical future needs.
+- Build uncertain features in small, working slices. Use a thin implementation through the real integration points to validate the approach before expanding it.
+- Do not hide failures with fallback values, swallowed errors, or guards that merely suppress symptoms.
+- Automate repeatable work when it reduces errors or repeated effort. Reuse existing project tools first. Add a script or generator when its maintenance cost is justified, rather than building tooling for a trivial one-time edit.
+- Verify assumptions and behavior. Make input expectations, outputs, and invariants explicit, and validate untrusted data at system boundaries. After all requested edits, run the relevant tests or direct verification as the final work step. Match checks to the change and its risk. Report what ran, what passed, and what remains unverified. If no applicable check exists, say so.
+- Treat quality as part of implementation. Learn from the project's conventions and observed failures instead of imposing a new pattern without evidence.
+
+## Prefer enums for finite string values
+
+When a string represents one choice from a known, finite set, use an enum instead of repeating hardcoded string literals. Prefer the language's enum feature. When it has no suitable enum, use its idiomatic typed equivalent, such as a constant set or a closed union type.
+
+Keep arbitrary text, user-provided values, and genuinely open-ended strings as strings. For values that must cross an API, storage, or protocol boundary as strings, use string-backed enum values (or the language's equivalent) that preserve the required external representation. Do not change a required public, framework, protocol, or external-library contract.
+
+```typescript
+enum OrderStatus {
+  Pending = "pending",
+  Paid = "paid",
+  Cancelled = "cancelled",
+}
+
+if (order.status === OrderStatus.Paid) {
+  completeOrder(order);
+}
+```
 
 ## Separate logical steps
 

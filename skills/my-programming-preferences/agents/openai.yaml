@@ -1,4 +1,4 @@
 interface:
   display_name: "My programming preferences"
-  short_description: "Personal rules for spacing, conditions, and arguments"
+  short_description: "Pragmatic design, debugging, verification, and code style"
   default_prompt: "Use $my-programming-preferences when writing or editing this code."
